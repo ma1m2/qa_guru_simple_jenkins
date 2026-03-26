@@ -24,4 +24,16 @@ public class SkippedTests {
     Assertions.assertTrue(true);
   }
 
+  @Test
+  @Disabled
+  public void positiveTest3() {
+    Assertions.assertTrue(true);
+  }
+
+  @Test
+  @Disabled
+  public void positiveTest4() {
+    Assertions.assertTrue(true);
+  }
+
 }
