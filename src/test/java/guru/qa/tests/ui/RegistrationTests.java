@@ -22,7 +22,8 @@ public class RegistrationTests {
     Configuration.pageLoadStrategy = "eager";
     Configuration.baseUrl = "https://demoqa.com/";
     Configuration.browser = "chrome";
-    Configuration.timeout = 5000; //default 4000
+    Configuration.browserVersion = "128.0";
+    Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
   }
 
   @AfterEach
