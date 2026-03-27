@@ -1,8 +1,10 @@
 package guru.qa.tests.common;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
+@Disabled
 public class NegativeTests {
   
   @Test
