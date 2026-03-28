@@ -2,6 +2,7 @@ package guru.qa.tests.ui;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import guru.qa.helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -30,12 +31,16 @@ public class TestBase {
     Configuration.browserVersion = "128.0";
     Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
     Configuration.browserCapabilities.setCapability("selenoid:options",
-            Map.of("enableVNC", true, "enableLog", true));
+            Map.of("enableVNC", true, "enableLog", true,"enableVideo", true));
   }
 
   @AfterEach
-  void tearDown() {
+  void addAttachments() {
+    Attach.screenshotAs("Last screenshot");
+    Attach.pageSource();
+    Attach.browserConsoleLogs();
+    Attach.addVideo();
+
     closeWebDriver();
   }
-
 }

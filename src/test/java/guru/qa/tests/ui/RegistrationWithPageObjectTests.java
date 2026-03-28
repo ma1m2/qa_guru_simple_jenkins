@@ -1,7 +1,9 @@
 package guru.qa.tests.ui;
 
+import guru.qa.helpers.Attach;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Story;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import io.qameta.allure.Feature;
@@ -20,6 +22,7 @@ public class RegistrationWithPageObjectTests extends TestBase{
     //Arrange
     step("Open main page and navigate to form page",()->{
       registrationPage.openPage();
+      Attach.screenshotAs("Open form page screenshot");
     });
     //Act
     step("Fill registration form",()->{
@@ -34,7 +37,7 @@ public class RegistrationWithPageObjectTests extends TestBase{
               .uploadPhoto(fileName)
               .typeCurrentAddress(currentAddress)
               .setStateAndCity(state, city);
-
+      Attach.screenshotAs("Fill form page screenshot");
     });
     //Assert
     step("Check Modal Window with Result",()->{
@@ -57,6 +60,7 @@ public class RegistrationWithPageObjectTests extends TestBase{
   @Test
   @Story("Failed registration")
   @DisplayName("Broken Registration")
+  //@Disabled
   void brokenRegistrationTest() {
     //Arrange
     step("Open main page and navigate to form page",()->{
