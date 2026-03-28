@@ -1,6 +1,5 @@
 package guru.qa.tests.ui;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.appear;
@@ -9,12 +8,24 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.open;
-import static guru.qa.testdata.TestData.*;
+import static guru.qa.testdata.TestData.city;
+import static guru.qa.testdata.TestData.currentAddress;
+import static guru.qa.testdata.TestData.day;
+import static guru.qa.testdata.TestData.fileName;
+import static guru.qa.testdata.TestData.firstName;
+import static guru.qa.testdata.TestData.gender;
+import static guru.qa.testdata.TestData.hobbie;
+import static guru.qa.testdata.TestData.lastName;
+import static guru.qa.testdata.TestData.month;
+import static guru.qa.testdata.TestData.phoneNumber;
+import static guru.qa.testdata.TestData.state;
+import static guru.qa.testdata.TestData.subject;
+import static guru.qa.testdata.TestData.userEmail;
+import static guru.qa.testdata.TestData.year;
 
 public class RegistrationTests extends TestBase {
 
   @Test
-  @Disabled
   public void demoqaFillForm() {
     open("/");//automation-practice-form
     $$(".card-body").findBy(text("Forms")).click();
