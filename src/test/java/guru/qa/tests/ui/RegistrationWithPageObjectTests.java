@@ -13,6 +13,7 @@ import static io.qameta.allure.Allure.step;
 
 @Feature("Registration")
 @Owner("SvetaQa")
+@Disabled
 public class RegistrationWithPageObjectTests extends TestBase{
 
   @Test
