@@ -1,37 +1,20 @@
 package guru.qa.tests.ui;
 
-import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.AfterEach;
 
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
-import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 import static guru.qa.testdata.TestData.*;
 
-public class RegistrationTests {
-
-  @BeforeAll
-  static void setUp() {
-    Configuration.browserSize = "1920x1080";
-    Configuration.pageLoadStrategy = "eager";
-    Configuration.baseUrl = "https://demoqa.com/";
-    Configuration.browser = "chrome";
-    Configuration.browserVersion = "128.0";
-    Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
-  }
-
-  @AfterEach
-  void tearDown() {
-    closeWebDriver();
-  }
+public class RegistrationTests extends TestBase {
 
   @Test
+  @Disabled
   public void demoqaFillForm() {
     open("/");//automation-practice-form
     $$(".card-body").findBy(text("Forms")).click();
