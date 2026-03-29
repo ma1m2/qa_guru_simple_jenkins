@@ -60,7 +60,7 @@ public class RegistrationWithPageObjectTests extends TestBase{
   @Test
   @Story("Failed registration")
   @DisplayName("Broken Registration")
-  //@Disabled
+  @Disabled
   void brokenRegistrationTest() {
     //Arrange
     step("Open main page and navigate to form page",()->{
