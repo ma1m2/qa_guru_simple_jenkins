@@ -3,16 +3,16 @@ package guru.qa.tests.prop;
 import org.junit.jupiter.api.Test;
 
 public class PropertiesTests {
-// ./gradlew clean test -Dname=SvetaQa -Dbrowser=firafox -Denvironment=prod
+// ./gradlew clean test -Dname=SvetaQa -Dbrowser=firefox -Denvironment=prod
   @Test
   public void propertyNameTest() {
-    String name = System.getProperty("name");
+    String name = System.getProperty("name", "SvetaQa");
     System.out.println("### My name is " + name);
   }
 
   @Test
   public void propertyEnvironmentTest() {
-    String environment = System.getProperty("environment");
+    String environment = System.getProperty("environment", "test");
     System.out.println("### Environment is " + environment);
   }
 
