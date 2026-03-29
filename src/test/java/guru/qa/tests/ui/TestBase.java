@@ -17,21 +17,26 @@ public class TestBase {
 
   RegistrationPage registrationPage = new RegistrationPage();
 
-  @BeforeEach
-  void addListener(){
-    SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-  }
+  public static String resolution = System.getProperty("resolution", "1920x1080");
+  public static String baseUrl = System.getProperty("baseUrl", "https://demoqa.com/");
+  public static String browser = System.getProperty("browser", "chrome");
+  public static String browserVersion = System.getProperty("browserVersion");
 
   @BeforeAll
   static void setUp() {
-    Configuration.browserSize = "1920x1080";
+    Configuration.browserSize = resolution;
     Configuration.pageLoadStrategy = "eager";
-    Configuration.baseUrl = "https://demoqa.com/";
-    Configuration.browser = "chrome";
-    Configuration.browserVersion = "128.0";
+    Configuration.baseUrl = baseUrl;
+    Configuration.browser = browser;
+    Configuration.browserVersion = browserVersion;
     Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
     Configuration.browserCapabilities.setCapability("selenoid:options",
             Map.of("enableVNC", true, "enableLog", true,"enableVideo", true));
+  }
+
+  @BeforeEach
+  void addListener(){
+    SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
   }
 
   @AfterEach
@@ -40,7 +45,6 @@ public class TestBase {
     Attach.pageSource();
     Attach.browserConsoleLogs();
     Attach.addVideo();
-
     closeWebDriver();
   }
 }
