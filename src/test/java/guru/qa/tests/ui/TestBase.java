@@ -21,6 +21,8 @@ public class TestBase {
   public static String baseUrl = System.getProperty("baseUrl", "https://demoqa.com/");
   public static String browser = System.getProperty("browser", "chrome");
   public static String browserVersion = System.getProperty("browserVersion");
+  public static String remote = System
+          .getProperty("remote","https://user1:1234@selenoid.autotests.cloud/wd/hub");
 
   @BeforeAll
   static void setUp() {
@@ -29,7 +31,7 @@ public class TestBase {
     Configuration.baseUrl = baseUrl;
     Configuration.browser = browser;
     Configuration.browserVersion = browserVersion;
-    Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+    Configuration.remote = remote;
     Configuration.browserCapabilities.setCapability("selenoid:options",
             Map.of("enableVNC", true, "enableLog", true,"enableVideo", true));
   }
