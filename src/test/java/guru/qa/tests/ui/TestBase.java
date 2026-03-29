@@ -17,21 +17,15 @@ public class TestBase {
 
   RegistrationPage registrationPage = new RegistrationPage();
 
-  public static String resolution = System.getProperty("resolution", "1920x1080");
-  public static String baseUrl = System.getProperty("baseUrl", "https://demoqa.com/");
-  public static String browser = System.getProperty("browser", "chrome");
-  public static String browserVersion = System.getProperty("browserVersion");
-  public static String remote = System
-          .getProperty("remote","https://user1:1234@selenoid.autotests.cloud/wd/hub");
-
   @BeforeAll
   static void setUp() {
-    Configuration.browserSize = resolution;
+    Configuration.browserSize = System.getProperty("resolution", "1920x1080");
     Configuration.pageLoadStrategy = "eager";
-    Configuration.baseUrl = baseUrl;
-    Configuration.browser = browser;
-    Configuration.browserVersion = browserVersion;
-    Configuration.remote = remote;
+    Configuration.baseUrl = System.getProperty("baseUrl", "https://demoqa.com/");
+    Configuration.browser = System.getProperty("browser", "chrome");
+    Configuration.browserVersion = System.getProperty("browserVersion");
+    Configuration.remote = System
+            .getProperty("remote","https://user1:1234@selenoid.autotests.cloud/wd/hub");
     Configuration.browserCapabilities.setCapability("selenoid:options",
             Map.of("enableVNC", true, "enableLog", true,"enableVideo", true));
   }
