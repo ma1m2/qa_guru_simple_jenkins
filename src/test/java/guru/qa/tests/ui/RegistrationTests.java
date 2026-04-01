@@ -14,7 +14,6 @@ import static guru.qa.testdata.TestData.*;
 public class RegistrationTests extends TestBase {
 
   @Test
-  @Disabled
   public void demoqaFillForm() {
     open("/");//automation-practice-form
     $$(".card-body").findBy(text("Forms")).click();
