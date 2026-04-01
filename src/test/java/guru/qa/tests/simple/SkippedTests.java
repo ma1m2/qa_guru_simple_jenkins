@@ -7,13 +7,11 @@ import org.junit.jupiter.api.Test;
 public class SkippedTests {
 
   @Test
-  //@Disabled
   public void positiveTest0() {
     Assertions.assertTrue(true);
   }
 
   @Test
-  //@Disabled
   public void positiveTest1() {
     Assertions.assertTrue(true);
   }
